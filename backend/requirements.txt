@@ -1,13 +1,11 @@
 Flask
 gunicorn
-
 langchain
 langchain-groq
+langchain-openai
 openai
-
 chromadb
 sqlalchemy
-
 protobuf
 typing-extensions
 tokenizers
