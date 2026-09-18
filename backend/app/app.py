@@ -1,5 +1,7 @@
 from flask import Flask
+
 from app.api.upload import upload_bp
+from app.api.endpoints import chat_bp
 
 
 def create_app():
@@ -14,6 +16,7 @@ def create_app():
         }
 
     app.register_blueprint(upload_bp)
+    app.register_blueprint(chat_bp)
 
     return app
 
