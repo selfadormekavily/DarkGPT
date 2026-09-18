@@ -1,4 +1,4 @@
-from langchain.vectorstores import VectorStore
+from langchain_core.vectorstores import VectorStore
 from langchain.embeddings import OpenAIEmbeddings
 
 class CustomVectorStore(VectorStore):
