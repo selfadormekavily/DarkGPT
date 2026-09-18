@@ -4,8 +4,9 @@ from langchain_groq import ChatGroq
 
 def process_query(query):
     model = ChatGroq(
-        model="llama-3.3-70b-versatile",
-        api_key=os.environ.get("GROQ_API_KEY")
+        model="qwen/qwen3.6-27b",
+        api_key=os.environ.get("GROQ_API_KEY"),
+        temperature=0.7,
     )
 
     response = model.invoke(query)
