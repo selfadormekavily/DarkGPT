@@ -4,6 +4,14 @@ from app.api.endpoints import chat_bp
 
 def create_app():
     app = Flask(__name__)
+@app.route("/")
+def home():
+    return {
+        "status": "ok",
+        "service": "DarkGPT backend",
+        "message": "Backend is running"
+    }
+    
 
     # Register blueprints
     app.register_blueprint(upload_bp, url_prefix='/api')
