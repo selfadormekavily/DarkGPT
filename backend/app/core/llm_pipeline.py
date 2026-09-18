@@ -1,9 +1,13 @@
+import os
 from langchain_groq import ChatGroq
 
+
 def process_query(query):
-    """
-    Process a query using the Groq model and return the response.
-    """
-    model = ChatGroq(model_name="Llama-3")  # or Mixtral
-    response = model.generate(query)
-    return response
+    model = ChatGroq(
+        model="llama-3.3-70b-versatile",
+        api_key=os.environ.get("GROQ_API_KEY")
+    )
+
+    response = model.invoke(query)
+
+    return response.content
