@@ -1,20 +1,15 @@
-# Use the official Node.js image as a base
-FROM node:14
+FROM python:3.11-slim
 
-# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY frontend/package*.json ./
+COPY backend/requirements.txt .
 
-# Install dependencies
-RUN npm install
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
-COPY . .
+COPY backend/ .
 
-# Expose the port the app runs on
-EXPOSE 3000
+ENV PORT=10000
 
-# Command to run the application
-CMD ["npm", "run", "dev"]
+EXPOSE 10000
+
+CMD ["sh", "-c", "gunicorn 'app.app:create_app()' --bind 0.0.0.0:${PORT}"]
