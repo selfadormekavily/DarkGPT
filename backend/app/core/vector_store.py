@@ -1,5 +1,5 @@
 from langchain_core.vectorstores import VectorStore
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 
 class CustomVectorStore(VectorStore):
     def __init__(self):
